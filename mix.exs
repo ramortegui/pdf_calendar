@@ -33,6 +33,7 @@ defmodule PdfCalendar.MixProject do
   defp deps do
     [
       {:credo, "~> 1.0.0", only: [:dev, :test], runtime: false},
+      {:ecto, "~> 3.0"},
       {:edeliver, ">= 1.6.0"},
       {:distillery, "~> 2.0", warn_missing: false},
       {:phoenix, "~> 1.4.0"},
