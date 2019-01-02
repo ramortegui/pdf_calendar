@@ -1,4 +1,4 @@
-APP="PdfCalendar"
+APP="pdf_calendar"
 
 BUILD_HOST="pdfcalendar.amortegui.ca"
 BUILD_USER="ramortegui"
