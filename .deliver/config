@@ -6,11 +6,11 @@ BUILD_AT="/home/ramortegui/projects/pdf_calendar/builds"
 
 STAGING_HOSTS="pdfcalendar.amortegui.ca"
 STAGING_USER="ramortegui"
-DELIVER_TO="/home/ramortegui/projects/pdf_calendar/builds"
+DELIVER_TO="/home/ramortegui/projects/pdf_calendar/app_release"
 
 PRODUCTION_HOSTS="pdfcalendar.amortegui.ca"
 PRODUCTION_USER="ramortegui"
-DELIVER_TO="/home/ramortegui/projects/pdf_calendar/builds"
+DELIVER_TO="/home/ramortegui/projects/pdf_calendar/app_release"
 
 
 pre_erlang_get_and_update_deps() {
