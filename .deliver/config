@@ -8,6 +8,10 @@ STAGING_HOSTS="pdfcalendar.amortegui.ca"
 STAGING_USER="ramortegui"
 DELIVER_TO="/home/ramortegui/projects/pdf_calendar/builds"
 
+PRODUCTION_HOSTS="pdfcalendar.amortegui.ca"
+PRODUCTION_USER="ramortegui"
+DELIVER_TO="/home/ramortegui/projects/pdf_calendar/builds"
+
 
 pre_erlang_get_and_update_deps() {
   local _prod_secret_path="/home/ramortegui/projects/pdf_calendar/app_config/prod.secret.exs"
