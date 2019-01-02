@@ -1,4 +1,4 @@
-# PdfCalendar
+# PdfCalendar [![Build Status](https://travis-ci.com/ramortegui/pdf_calendar.svg?branch=master)](https://travis-ci.com/ramortegui/pdf_calendar)
 
 To start your Phoenix server:
 
