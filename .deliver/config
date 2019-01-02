@@ -1,0 +1,44 @@
+APP="pdf_calendar"
+
+BUILD_HOST="pdfcalendar.amortegui.ca"
+BUILD_USER="ramortegui"
+BUILD_AT="/home/ramortegui/projects/pdf_calendar/builds"
+
+STAGING_HOSTS="pdfcalendar.amortegui.ca"
+STAGING_USER="ramortegui"
+DELIVER_TO="/home/ramortegui/projects/pdf_calendar/builds"
+
+
+pre_erlang_get_and_update_deps() {
+  local _prod_secret_path="/home/ramortegui/projects/pdf_calendar/app_config/prod.secret.exs"
+  if [ "$TARGET_MIX_ENV" = "prod" ]; then
+    __sync_remote "
+      ln -sfn '$_prod_secret_path' '$BUILD_AT/config/prod.secret.exs'
+    "
+  fi
+}
+
+pre_erlang_clean_compile() {
+  status "Building static files"
+  __sync_remote "
+    [ -f ~/.profile ] && source ~/.profile # load profile (optional)
+    # fail if any command fails (recommended)
+    set -e
+    cd '$BUILD_AT'
+    mkdir -p priv/static
+    cd '$BUILD_AT/assets'
+    yarn install $SILENCE
+    cd '$BUILD_AT/assets'
+    ./node_modules/webpack/bin/webpack.js --mode=production $SILENCE
+
+  "
+
+  status "Running phoenix.digest"
+  __sync_remote "
+    [ -f ~/.profile ] && source ~/.profile # load profile (optional)
+    # fail if any command fails (recommended)
+    set -e
+    cd '$BUILD_AT'
+    APP='$APP' MIX_ENV='$TARGET_MIX_ENV' $MIX_CMD phx.digest $SILENCE
+  "
+}

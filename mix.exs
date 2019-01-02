@@ -19,6 +19,7 @@ defmodule PdfCalendar.MixProject do
   def application do
     [
       mod: {PdfCalendar.Application, []},
+      applications: [:edeliver],
       extra_applications: [:logger, :runtime_tools]
     ]
   end
@@ -33,6 +34,8 @@ defmodule PdfCalendar.MixProject do
   defp deps do
     [
       {:credo, "~> 1.0.0", only: [:dev, :test], runtime: false},
+      {:edeliver, ">= 1.6.0"},
+      {:distillery, "~> 2.0", warn_missing: false},
       {:phoenix, "~> 1.4.0"},
       {:phoenix_pubsub, "~> 1.1"},
       {:phoenix_html, "~> 2.11"},
