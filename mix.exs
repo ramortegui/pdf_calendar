@@ -19,8 +19,7 @@ defmodule PdfCalendar.MixProject do
   def application do
     [
       mod: {PdfCalendar.Application, []},
-      applications: [:edeliver],
-      extra_applications: [:logger, :runtime_tools]
+      extra_applications: [:logger, :runtime_tools, :edeliver]
     ]
   end
 
