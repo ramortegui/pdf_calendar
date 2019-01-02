@@ -31,7 +31,7 @@ defmodule PdfCalendarWeb.PageController do
   end
 
   defp pdf_name do
-    "#{random()}.pdf"
+    "/tmp/#{random()}.pdf"
   end
 
   defp random do
