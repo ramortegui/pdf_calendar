@@ -3,6 +3,11 @@ elixir:
   - '1.7.4'
 otp_release:
   - '21.2'
+before_install:
+  - sudo apt-get install -y pcal ghostscript
+addons:
+  apt:
+    update: true
 script:
   - mix format --check-formatted
   - mix credo --strict

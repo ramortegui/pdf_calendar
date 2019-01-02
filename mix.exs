@@ -33,6 +33,7 @@ defmodule PdfCalendar.MixProject do
   defp deps do
     [
       {:credo, "~> 1.0.0", only: [:dev, :test], runtime: false},
+      {:ecto, "~> 3.0"},
       {:edeliver, ">= 1.6.0"},
       {:distillery, "~> 2.0", warn_missing: false},
       {:phoenix, "~> 1.4.0"},
@@ -41,7 +42,8 @@ defmodule PdfCalendar.MixProject do
       {:phoenix_live_reload, "~> 1.2", only: :dev},
       {:gettext, "~> 0.11"},
       {:jason, "~> 1.0"},
-      {:plug_cowboy, "~> 2.0"}
+      {:plug_cowboy, "~> 2.0"},
+      {:pcal, git: "https://github.com/ramortegui/pcal.git", tag: "v0.1.1"}
     ]
   end
 end
