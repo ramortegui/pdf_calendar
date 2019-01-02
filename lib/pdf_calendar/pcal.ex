@@ -1,13 +1,16 @@
 defmodule PdfCalendar.Pcal do
+  @moduledoc """
+  This module is used to validate data to be pass to Pcal.
+  """
   use Ecto.Schema
   import Ecto.Changeset
 
   schema "pcal" do
-    field :month, :integer
-    field :year, :integer
+    field(:month, :integer)
+    field(:year, :integer)
   end
 
-  def changeset(pcal, params \\ %{} ) do
+  def changeset(pcal, params \\ %{}) do
     pcal
     |> cast(params, [:month, :year])
     |> validate_required([:month, :year])
