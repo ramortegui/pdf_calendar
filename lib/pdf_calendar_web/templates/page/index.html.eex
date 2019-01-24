@@ -6,5 +6,7 @@
   <%= label f, :year%>
   <%= select f, :year, years(), [selected: current_year()] %>
   <%= error_tag f, :year%>
+
+  <br />
   <%= submit "Download" %>
 <% end %>
