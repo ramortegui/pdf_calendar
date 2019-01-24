@@ -23,11 +23,11 @@ defmodule PdfCalendarWeb.PageController do
 
   defp pdf_calendar_changeset do
     date = DateTime.utc_now()
-
-    %PdfCalendar.Pcal{
+    pdf_calendar = %PdfCalendar.Pcal{
       month: date.month,
       year: date.year
     }
+    PdfCalendar.Pcal.changeset(pdf_calendar, %{})
   end
 
   defp pdf_name do
