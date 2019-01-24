@@ -1,6 +1,10 @@
 <h1>PdfCalendar</h1>
 <%= form_for @changeset, Routes.page_path(@conn, :download), fn f -> %>
+  <%= label f, :month %>
   <%= select f, :month, months(), [selected: current_month()] %>
+  <%= error_tag f, :month %>
+  <%= label f, :year%>
   <%= select f, :year, years(), [selected: current_year()] %>
+  <%= error_tag f, :year%>
   <%= submit "Download" %>
 <% end %>

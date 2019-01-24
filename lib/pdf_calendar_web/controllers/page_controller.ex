@@ -2,12 +2,12 @@ defmodule PdfCalendarWeb.PageController do
   use PdfCalendarWeb, :controller
 
   def index(conn, _params) do
-    changeset = pdf_calendar_changeset()
+    changeset = PdfCalendar.Pcal.changeset(pdf_calendar_struct())
     render(conn, "index.html", changeset: changeset)
   end
 
   def download(conn, params) do
-    changeset = PdfCalendar.Pcal.changeset(pdf_calendar_changeset(), params["pcal"])
+    changeset = PdfCalendar.Pcal.changeset(%PdfCalendar.Pcal{}, params["pcal"])
 
     case changeset.valid? do
       true ->
@@ -17,17 +17,17 @@ defmodule PdfCalendarWeb.PageController do
         send_download(conn, {:file, output}, filename: "#{month}_#{year}.pdf")
 
       false ->
-        render(conn, "index.html", changeset: changeset)
+        render(conn, "index.html", changeset: %{changeset | action: 'create'})
     end
   end
 
-  defp pdf_calendar_changeset do
+  defp pdf_calendar_struct do
     date = DateTime.utc_now()
-    pdf_calendar = %PdfCalendar.Pcal{
+
+    %PdfCalendar.Pcal{
       month: date.month,
       year: date.year
     }
-    PdfCalendar.Pcal.changeset(pdf_calendar, %{})
   end
 
   defp pdf_name do
