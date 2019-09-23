@@ -1,5 +1,7 @@
 # PdfCalendar [![Build Status](https://travis-ci.com/ramortegui/pdf_calendar.svg?branch=master)](https://travis-ci.com/ramortegui/pdf_calendar)
 
+![pdf_calendar](https://github.com/ramortegui/pdf_calendar/blob/master/assets/static/images/pdfcalendar.png)
+
 To start your Phoenix server:
 
   * Install dependencies with `mix deps.get`
